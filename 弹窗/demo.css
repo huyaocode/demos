@@ -54,6 +54,7 @@ body{
     border-radius: 20px;
     background-color: #fff;
     margin: 0 auto;
+    display: none;
 }
 .wrapper .shareDame .shareBox .shareBox-head{
     color: green;
@@ -69,31 +70,44 @@ body{
     float: right;
     background: url('img/closeBtn.png') 0px 0px no-repeat;
 }
+.wrapper .shareDame .shareBox .shareBox-head .closebtn:hover{
+    background: url('img/closeBtn.png') 0px -30px no-repeat;
+}
 .wrapper .shareDame .shareBox .shareContent{
     padding-top: 20px;
 }
 .wrapper .shareDame .shareBox .shareContent ul li{
-    /* position: relative; */
+    position: relative;
     float: left;
     width: 50px;
     height: 50px;
     margin: 5px;
+
 }
 .shareContent ul li a {
     display: block;
     width: 28px;
     height: 28px;
-    margin: 12px 0 0 12px;
+    margin: 10px 0 0 12px;
     transition: all 0.3s ease-in-out;
-} 
-
+}
+.shareContent ul li:hover a{
+    margin-top: 0px;
+}
 .wrapper .shareDame .shareBox .shareContent ul li span {
-    width: 50px;
+    width: 40px;
     height: 10px;
     display: block;
-    /* border-radius: 50%;  */
-    background: url(./share_shade.png) 0px 0px no-repeat;
+    background: url('img/share_shade.png') 0px 0px no-repeat;
+    position: absolute;
+    left: 5px;
+    bottom: 0px;
+    transition: all 0.3s ease-in-out;
 }
+.wrapper .shareDame .shareBox .shareContent ul li:hover span {
+    opacity: 0.4;
+}
+
 .shareContent ul li .share1 {
     background: url('img/sharePic.png') 0px 0px no-repeat;
 }

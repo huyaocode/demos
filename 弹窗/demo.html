@@ -50,7 +50,18 @@
     </div>
 
     <script src="jquery.js"></script>
-    <script src="demo.js"></script>
+    <script>
+        var sharebtn = document.getElementsByClassName('sharebtn')[0],
+            shareBox = document.getElementsByClassName('shareBox')[0],
+            closebtn = document.getElementsByClassName('closebtn')[0];
+
+        sharebtn.onclick = function(){
+            shareBox.style.display = "block";
+        }
+        closebtn.onclick = function(){
+            shareBox.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
