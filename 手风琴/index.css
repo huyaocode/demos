@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background-color: floralwhite;
+}
+.wrapper{
+    margin: 50px auto;
+    width: 1000px;
+}
+.wrapper ul li{
+    width: 14%;
+    height: 260px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.wrapper ul li .title{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    
+}
+.wrapper ul li .title h1{
+    color: #fff;
+    width: 30px;
+    margin: 0 auto;
+    /* font-size: 30px; */
+    opacity: 0.8;
+    padding: 30px;
+}
+.wrapper ul li .decration{
+    /* display: none; */
+    width: 95%;
+    height: 40px;
+    padding: 0 20px;
+    position: absolute;
+    left: 0;
+    color: #fff;
+    bottom: -50px;
+    background-color: rgba(255,255,255,0.3);
+}
+.picBox{
+    width: 100%;
+    height: 100%;
+}
+/**
+ * 添加图片
+ ***********************************************/
+.picBox1{
+    background:url(img/1.jpg) no-repeat center 0;
+}
+.picBox2{
+    background:url(img/2.jpg) no-repeat center 0;
+}
+.picBox3{
+    background:url(img/3.jpg) no-repeat center 0;
+}
+.picBox4{
+    background:url(img/4.jpg) no-repeat center 0;
+}
+.picBox5{
+    background:url(img/5.jpg) no-repeat center 0;
+}
+.picBox6{
+    background:url(img/6.jpg) no-repeat center 0;
+}
+.picBox7{
+    background:url(img/7.jpg) no-repeat center 0;
+}
+/* .wrapper ul li.max{
+    width: 400px;
+}
+.wrapper ul li.max .title{
+   display: none;
+}
+.wrapper ul li.max .decration{
+    bottom: 0px;
+    padding: 5px 20px;
+} */
