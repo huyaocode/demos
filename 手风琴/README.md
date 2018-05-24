@@ -1,13 +1,12 @@
 ﻿# 手风琴
-
-## 在position absolute 中的文字怎么左右居中
+## 效果图
+![此处输入图片的描述][1]
 
 ## 文本框溢出
+[参考我的博客][2]
 
 ## 改进
 将额外修改CSS的操作屏蔽掉了
-
-## 原生JS取到子节点
 
 ## JQ错误处理
 ### 报错类型
@@ -44,3 +43,6 @@ linear写错了就会报以上错误
 !( 0 && 0 ) &nbsp;== 1 
 &nbsp;  !0 && !0 &nbsp; == 1 
 
+
+  [1]: https://raw.githubusercontent.com/huyaocode/demos/master/%E6%89%8B%E9%A3%8E%E7%90%B4/demo.gif
+  [2]: https://blog.csdn.net/qq_37746973/article/details/80445588
