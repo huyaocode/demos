@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #0e141b;
+}
+.wrapper{
+    width: 100%;
+    text-align: center;
+}
+.wrapper .column,
+.wrapper .coln{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 86px;
+    line-height: 86px;
+    font-weight: 300;
+    color:rgba(224, 230,235,0.89);   
+}
+.coln{
+    transform: translateY(calc(50vh - 43px));
+}
