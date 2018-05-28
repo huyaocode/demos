@@ -1,7 +1,7 @@
 # 可筛选列表
 
 ## 效果展示
-[demo]('/demo.gif')
+![demo](./demo.gif)
 ## 多条件筛选的实现
 
 ```javascript
