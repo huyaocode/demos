@@ -14,19 +14,19 @@ var oUl = document.getElementById('list'),
 
 //事件绑定，当用户向文本框内输入文本时触发
 oInp.oninput = function(){
-    var value = this.value;
-    render( filterText(value, person) );
+
+    stateFilter.text.value = this.value;
+    render( addFunc(stateFilter, person) );
 };
+
 //事件绑定， 让用户可以选择性别
 sexUl.addEventListener('click', function(e){
-    console.log('adsf')
+
     if(e.target.tagName = 'LI'){
-        var sex = e.target.getAttribute('sex');
-        console.log(sex)
+        stateFilter.sex.value = e.target.getAttribute('sex');
         document.getElementsByClassName('active')[0].className = '';
         e.target.className = 'active';
-        
-        render(filterSex(sex, person));
+        render( addFunc(stateFilter, person) );
     }
 })
 
@@ -43,7 +43,6 @@ function render(list) {
                     <span class="des">'+ ele.des +'</span>\
                 </li>'
     });
-
     oUl.innerHTML = str;
 }
 
@@ -63,9 +62,11 @@ function filterText(text, arr){
  * 根据性别进行筛选
  */
 function filterSex(sex, arr){
+
     if(sex == 'all'){
         return arr;
     } else {
+
         return arr.filter(function(ele){
             if(sex == ele.sex){
                 return true;
@@ -74,22 +75,31 @@ function filterSex(sex, arr){
     }
 }
 
+//选择条件&实现函数
+var stateFilter = {
+    text: {
+        value: '',
+        func: filterText
+    },
+    sex: {
+        value: 'all',
+        func: filterSex
+    }
+}
+
+/**
+ * 叠加选择
+ * 把多种属性一起拿来做筛选条件
+ */
+function addFunc(obj, arr){
+
+    var lastArr = arr;
+    for(var prop in obj){
+        lastArr = obj[prop].func(obj[prop].value, lastArr);
+    }
+
+    return lastArr;
+}
+
 render(person);
 
-
-
-//根据内容筛选value--->filter筛选数组(newArr)-->新数组-->render(newArr)-->筛选渲染成功
-
-
-
-
-// 叠加选择  选择条件  实现条件的函数 
-// value --->filterText()
-// sex --->filterSex()
-// 选择条件 --条件值
-
-// 条件--》实现条件的函数  filterText(马,person)
-// filterText(male,person)
-
-// arr[所有的]--》last=arr[女同学] --》last-->arr[马]
-// arr[所有的]--》arr[王] --》arr[男]
