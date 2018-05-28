@@ -4,6 +4,7 @@
 }
 body{
     background-color: #0e141b;
+    overflow: hidden;
 }
 .wrapper{
     width: 100%;
@@ -20,4 +21,22 @@ body{
 }
 .coln{
     transform: translateY(calc(50vh - 43px));
+}
+.column{
+    transition: transform 300ms ease-in;
+}
+/*
+    不同距离数值透明度不同
+*/
+.column .visible{
+    text-shadow: 1px 1px 20px #369;
+}
+.column .close{
+    opacity:0.35;
+}
+.column .far{
+    opacity:0.15;
+}
+.column .distant{
+    opacity:0.1;
 }
