@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.wrapper{
+    width: 500px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    border-radius: 10px;
+}
+.wrapper .search{
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    position: relative;
+}
+.wrapper .search input{
+    width: 50%;
+    height: 30px;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px 0 0 15px;
+    border: 1px solid #ccc;
+}
+.wrapper .search ul{
+    position: absolute;
+    right: 5px;
+    top: 15px;
+}
+.wrapper .search ul li{
+    float: left;
+    height: 28px;
+    border: 2px solid #ff8c00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 3px;
+    line-height: 28px;
+    font-weight: 800;
+    color: #ff8c00;
+    cursor: pointer;
+}
+.wrapper .search ul li:hover{
+    border: 2px solid #ccc;
+}
+.wrapper .userlist{
+    width: 100%;
+    margin: 25px 0;
+}
+.wrapper .userlist li{
+    width: 90%;
+    margin: 10px auto;
+    height: 60px;
+    border: 1px solid #bbb;
+}
+.wrapper .userlist li img{ 
+    width: 60px;
+    height: 60px;
+    border-right: 1px solid #bbb;
+}
+.wrapper .userlist li span{
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    vertical-align: top;    /*因为display： inline-block默认是按底部来对齐*/
+    font-size: 18px;
+}
+.wrapper .search .active{
+    color: #fff;
+    background-color: #ff8c00;
+}
