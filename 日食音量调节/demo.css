@@ -28,14 +28,10 @@ body{
     top: 30%;
 }
 
-
-/*
-****************************************/
 .sun{
     background-color: #ffff77;
     box-shadow: 0 0 50px #ffff77;
 }
-
 .moon{
     left:52%;
     cursor: pointer;
@@ -43,7 +39,7 @@ body{
 }
 .per{
     position: absolute;
-    bottom:20%;
+    bottom:0%;
     width:100%;
     text-align: center;
     color:#fff;
