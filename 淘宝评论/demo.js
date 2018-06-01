@@ -5,7 +5,7 @@
 init();
 function init() {
     start();
-    // bindEvent();
+    bindLeftRight();
 }
 /**
  * 点击图片 -> 大图展示，样式改变
@@ -18,9 +18,31 @@ function start() {
         var src = $this.find('img').attr('src');    //获得图片的src
         var img = new Image();
         img.src = src;
+        $photoView = $('.photoView');
         img.onload = function(){
-            
+            $photoView.css({
+                'height': img.height + 'px',
+                'width': '480px',
+            })
+            $photoView.on('click',function(){
+                $this.removeClass('active');
+                $photoView.css({
+                    'width': 0,
+                    'height': 0
+                })
+            })
         }
+        $photoView.find('img').attr('src', src);
+    })
+}
+function bindLeftRight(){
+    $('.photoView a').on('click', function(){
+        var $this = $(this),
+            clickTar = {};
+        clickTar.direction = $this.attr('class');
+        clickTar.index = $('.photos').find('li').index($('li.active'));
+        var index = clickTar.index;
+        console.log(clickTar);
     })
 }
 /**

@@ -47,9 +47,27 @@
 }
 .photoView{
     width: 0;
+    margin: 20px 0 0;
+    padding: 10px 0;
     height: 0;
-    background-color: #f2f2f2;
+    background-color: #333;
     transition: all 100ms ease-in-out;
+    overflow: hidden;
+    text-align: center; 
+    position: relative;
+}
+.photoView a{
+    position: absolute;
+    top: 48%;
+    text-decoration: none;
+    font-size: 2em;
+    color: #f23d6a;
+}
+.photoView a.left{
+    left: 10px;
+}
+.photoView a.right{
+    right: 10px;
 }
 .photos .active{
     border: 2px solid #f23d6a;
