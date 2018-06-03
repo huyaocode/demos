@@ -17,15 +17,15 @@
     width: 90%;
     margin: 0 auto;
 }
-.photos{
+#photos{
     height: 45px;
 }
-.photos img{
+#photos img{
     width: 40px;
     height: 40px;
     cursor: url('./img/coverAdd.png'), auto;
 }
-.photos li{
+#photos li{
     float: left;
     width: 40px;
     height: 40px;
@@ -34,7 +34,7 @@
     padding: 2px;
     position: relative;
 }
-.photos li span{
+#photos li span{
     display: inline-block;
     width: 0;
     height: 0;
@@ -69,10 +69,10 @@
 .photoView a.right{
     right: 10px;
 }
-.photos .active{
+#photos li.active{
     border: 2px solid #f23d6a;
 }
-.photos .active span{
+#photos .active span{
     opacity: 1;
 }
 
