@@ -12,16 +12,36 @@ var oUl = document.getElementById('list'),
     oInp = document.getElementById('inp'),
     sexUl = document.getElementById('sex');
 
-//事件绑定，当用户向文本框内输入文本时触发
-oInp.oninput = function(){
+/**
+ * 防抖函数
+ */
+function debounce(handle, delay){
+    delay = delay || 500;
+    var timer;
+    return function(){
+        clearTimeout(timer)
+        var self = this;
+        var _args = arguments;
+        timer = setTimeout(function(){
+            handle.apply(self, _args);
+        },delay)
+    }
+}
+/**
+ * 文字输入绑定
+ */
+oInp.oninput = debounce(dealInputEvent, 500);
 
+/**
+ * 文字输入事件
+ */
+function dealInputEvent(){
     stateFilter.text.value = this.value;
     render( addFunc(stateFilter, person) );
 };
 
 //事件绑定， 让用户可以选择性别
 sexUl.addEventListener('click', function(e){
-
     if(e.target.tagName = 'LI'){
         stateFilter.sex.value = e.target.getAttribute('sex');
         document.getElementsByClassName('active')[0].className = '';
@@ -35,6 +55,7 @@ sexUl.addEventListener('click', function(e){
  * @param list 
  */
 function render(list) {
+    console.log('render')
     var str = '';
     list.forEach(ele => {
         str += '<li>\
@@ -97,9 +118,10 @@ function addFunc(obj, arr){
     for(var prop in obj){
         lastArr = obj[prop].func(obj[prop].value, lastArr);
     }
-
+    //lastArr记录上一次筛选的结果
     return lastArr;
 }
+
 
 render(person);
 

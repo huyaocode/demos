@@ -72,7 +72,7 @@ function bindScoreEvent(){
         } else{
             gameOver();
         }
-        if(score % 10 == 0){
+        if(score % 3 == 0){
             speed++;
         }
     })

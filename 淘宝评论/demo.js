@@ -83,5 +83,6 @@ function bindLeftRight(){
             console.log('remove')
             $('#photos').find('li').toggleClass('active').siblings().removeClass('active');
         }
+        return false;   //阻止事件冒泡
     })
 }
