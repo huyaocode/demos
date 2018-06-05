@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #7b7b7b;
+}
+.wrapper{
+    width:70%;
+    margin:50px auto;
+}
+.imgBox{
+    width: 500px;
+    height: 252px;
+    margin: 50px auto;
+    perspective: 700px;
+}
+.wrapper img{
+    width:50px;
+    height:50px;
+    float: left;
+}
+.wrapper .btn{
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: #6c6c6c;
+        background-color: #0fc;
+        border-radius: 5px;
+        margin: 0 auto;
+        padding: 5px 5px;
+        cursor: pointer;
+        box-shadow: 2px 2px 3px #eee;
+        font-weight:bolder;
+    }
