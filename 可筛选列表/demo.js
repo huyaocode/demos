@@ -12,6 +12,20 @@ var oUl = document.getElementById('list'),
     oInp = document.getElementById('inp'),
     sexUl = document.getElementById('sex');
 
+//初始store
+var store = createStore({text: '', sex: 'all'})
+
+//筛选方法
+var filter = {
+    text: filterText,
+    sex: filterSex
+}
+
+//订阅事件
+store.subscribe(function(){
+    render( addFunc(filter, person) );
+})
+
 /**
  * 防抖函数
  */
@@ -27,6 +41,7 @@ function debounce(handle, delay){
         },delay)
     }
 }
+
 /**
  * 文字输入绑定
  */
@@ -36,17 +51,15 @@ oInp.oninput = debounce(dealInputEvent, 500);
  * 文字输入事件
  */
 function dealInputEvent(){
-    stateFilter.text.value = this.value;
-    render( addFunc(stateFilter, person) );
+    store.dispath({type: 'text', value:this.value})     //派发（输入框文字）事件
 };
 
 //事件绑定， 让用户可以选择性别
 sexUl.addEventListener('click', function(e){
     if(e.target.tagName = 'LI'){
-        stateFilter.sex.value = e.target.getAttribute('sex');
+        store.dispath({type: 'sex', value: e.target.getAttribute('sex')}) //派发（性别改变）事件
         document.getElementsByClassName('active')[0].className = '';
         e.target.className = 'active';
-        render( addFunc(stateFilter, person) );
     }
 })
 
@@ -55,7 +68,6 @@ sexUl.addEventListener('click', function(e){
  * @param list 
  */
 function render(list) {
-    console.log('render')
     var str = '';
     list.forEach(ele => {
         str += '<li>\
@@ -96,18 +108,6 @@ function filterSex(sex, arr){
     }
 }
 
-//选择条件&实现函数
-var stateFilter = {
-    text: {
-        value: '',
-        func: filterText
-    },
-    sex: {
-        value: 'all',
-        func: filterSex
-    }
-}
-
 /**
  * 叠加选择
  * 把多种属性一起拿来做筛选条件
@@ -116,7 +116,7 @@ function addFunc(obj, arr){
 
     var lastArr = arr;
     for(var prop in obj){
-        lastArr = obj[prop].func(obj[prop].value, lastArr);
+        lastArr = obj[prop](store.getState()[prop], lastArr);   //从store中取得状态，多次筛选
     }
     //lastArr记录上一次筛选的结果
     return lastArr;
