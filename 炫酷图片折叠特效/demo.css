@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;   /*会把图片间间隙消除（当两张图片挨在一起的时候，即两个line-block挨着的时候），文字就看不见了*/
+}
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    width: 100%;
+    /* 渐变的背景颜色 */
+    background: linear-gradient(to left top, #f5a1d5, #cdd3e9);
+}
+.wrapper{
+    width: 600px;
+    margin: 100px auto;
+    position: relative;
+}
+.card-stack{
+    width: 100%;
+    position:relative;
+    cursor: pointer;
+}
+.card{
+    height: 200px;
+    width: 200px;
+    background: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
+    transition-delay: 0.4s;
+}
+.card img{
+    width: 100%;
+}
+.card div{
+    padding-top: 15px; 
+    font-size: 20px;
+    text-align: center;
+}
+.cards-stack .card{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.stack{
+    position: absolute;
+    left: 0;   /*必须写，因为transition需要 */
+    transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
+}
+.stack .card1{
+    transform: rotateZ(-2deg);
+}
+.stack .card2{
+    transform: rotateZ(-7deg);
+}
+.stack .card3{
+    transform: rotateZ(5deg);
+}
+.transition .stack2{
+    left: 220px;
+}
+.transition .stack3{
+    left: 440px;
+}
+.transition .card{
+    transform: rotateZ(0deg)
+}
+.transition .card2{
+    top: 220px;
+}
+.transition .card3{
+    top: 440px;
+}
