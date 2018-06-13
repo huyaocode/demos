@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 100px auto;
+}
+.wrapper .box{
+    width: 100%;
+    height: 100%;
+}
+.wrapper .box img{
+    width: 100%;
+}
+.wrapper .btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -65px;
+    margin-left: -65px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.wrapper .btn img{
+    position: absolute;
+    top: -23px;
+    width: 130px;
+}
