@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>test</title>
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		ul {
+			width: 1000px;
+			height: 60px;
+			position: relative;
+			margin: 0 auto;
+		}
+
+		ul li.nav {
+			width: 98px;
+			height: 60px;
+			line-height: 60px;
+			border: 1px solid #000;
+			float: left;
+			text-align: center;
+			z-index: 10;
+		}
+
+		ul li.bg {
+			position: absolute;
+			background-color: orange;
+			left: 0;
+			top: 0;
+			width: 98px;
+			height: 60px;
+			z-index: 0;
+			opacity: 0.6;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li class="bg"></li>
+		<li class="nav"> NAV 1 </li>
+		<li class="nav"> NAV 2 </li>
+		<li class="nav"> NAV 3 </li>
+		<li class="nav"> NAV 4 </li>
+		<li class="nav"> NAV 5 </li>
+		<li class="nav"> NAV 6 </li>
+		<li class="nav"> NAV 7 </li>
+		<li class="nav"> NAV 8 </li>
+		<li class="nav"> NAV 9 </li>
+		<li class="nav"> NAV 10 </li>
+	</ul>
+
+	<script src="./animate.js"></script>
+	<script type="text/javascript">
+		var oNavArr = Array.prototype.slice.call( document.getElementsByClassName('nav') ,0),
+				oBg = document.getElementsByClassName('bg')[0];
+		oNavArr.forEach(element => {
+			element.onclick = function(){
+				startMove(oBg, this.offsetLeft);
+			}
+		});
+
+
+	</script>
+
+</body>
+
+</html>
