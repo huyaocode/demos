@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>test</title>
+
+<style type="text/css">
+div{
+	position: absolute;
+	left: 0px;
+	width: 100px;
+	height: 100px;
+	background: orange;
+  opacity: 1;
+}
+.top {
+  top: 100px;
+}
+.bottom{
+  top: 400px;
+}
+</style>
+</head>
+
+<body>
+	<div class="top"></div>
+	<div class="bottom"></div>
+
+<script src="./animate.js"></script>
+<script type="text/javascript">
+console.log('多物体链式运动，多值同时运动')
+var oDivArr = document.getElementsByTagName('div');
+var targetObj ={
+	width: 400,
+	height: 400,
+	opacity: 50,
+	left: 300,
+	top: 200
+}
+
+oDivArr[0].onclick = function() {
+	startMove(this, targetObj, function(){
+		startMove(oDivArr[1], targetObj)
+	})
+}
+
+
+</script>
+
+</body>
+</html>
