@@ -32,9 +32,9 @@ function startMove(obj, json, callback){
 
 //获取样式属性值
 function getStyle(obj, attr) {
-    if(obj.currentStyle) {
-      return obj,currentStyle[attr];
+    if(obj.currentStyle) {	//兼容IE
+      return obj.currentStyle[attr];
     } else {
-      return window.getComputedStyle(obj,false)[attr];  
+      return window.getComputedStyle(obj,false)[attr];
     }
 }

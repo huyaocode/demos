@@ -1,0 +1,61 @@
+    
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#container {
+    width: 510px;
+    height: 286px;
+    margin: 0 auto;
+    position: relative;
+    background: pink;
+    overflow: hidden;
+}
+
+#inner {
+    width: 10000%;/*设置的宽度10000%为相对与视图窗口的100倍*/
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#inner img {
+    width: 1%;
+    height: 100%;
+    float: left;
+}
+.paganation {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+}
+.paganation span {
+    padding: 5px 8px;
+    background: #F2F2F2;
+    color: red;
+    border-radius: 50%;
+    cursor: pointer
+}
+.paganation .selected {
+    background: #888;
+    color: white;
+}
+.arrow {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 286px;
+    line-height: 286px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+#right {
+    right: 0;
+}
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}

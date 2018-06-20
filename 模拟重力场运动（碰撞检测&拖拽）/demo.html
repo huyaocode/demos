@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟重力场运动（碰撞检测&拖拽）</title>
+    <style>
+    div{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+    <script src="./animate.js"></script>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        var lastX = oDiv.offsetLeft,
+            lastY = oDiv.offsetTop;
+
+        oDiv.onmousedown = drag;
+    </script>
+</body>
+</html>
