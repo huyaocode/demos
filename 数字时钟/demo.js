@@ -14,8 +14,7 @@
  * @param {是否使用24小时制} use24Hours 
  */
 function TimeClock(dom, use24Hours){
-    this.colums = Array.from(dom);
-    this.use24Hours = use24Hours;
+    this.colums = Array.from(dom);  //将dom类数组转成数组
     this.classList = ['visible','close','close','far','far','distant','distant'];
     this.start();
 }
@@ -25,9 +24,10 @@ function TimeClock(dom, use24Hours){
  * 按周期进行位置调整和CSS样式改变
  */
 TimeClock.prototype.start = function(){
+    
     var self = this;
     setInterval(function(){
-        var now = self.getClock();
+        var now = self.getClock();  //获取当前时间
         self.colums.forEach(function(ele, index){
             var n = + now[index]; // + 把字符串转为数字
             var offset = n * 86 + 43;
@@ -46,8 +46,7 @@ TimeClock.prototype.start = function(){
  * 根据索引值与当前数字只查来获取对应透明度类名
  */
 TimeClock.prototype.getClassName = function(n, index){
-    var pos;
-    pos = Math.abs(n - index);
+    var pos = Math.abs(n - index);
     return this.classList[pos];
 }
 
@@ -63,4 +62,5 @@ TimeClock.prototype.getClock = function(){
     }
     return [now.getHours(), now.getMinutes(), now.getSeconds()].reduce(getTimeStr, '');
 }
+
 new TimeClock($('.column'), true)

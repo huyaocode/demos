@@ -4,58 +4,61 @@
     padding: 0;
     border: 0;
 }
-#container {
+.wrapper {
     width: 510px;
     height: 286px;
     margin: 0 auto;
     position: relative;
-    background: pink;
+    background: #fff;
     overflow: hidden;
 }
 
-#inner {
-    width: 10000%;/*设置的宽度10000%为相对与视图窗口的100倍*/
+.sliderPage {
+    width: 100000px;/*设置的宽度10000%为相对与视图窗口的100倍*/
     height: 100%;
     position: absolute;
     left: 0px;
     top: 0px;
 }
 
-#inner img {
-    width: 1%;
+.sliderPage img {
+    width: 510px;
     height: 100%;
     float: left;
 }
 .paganation {
     width: 100%;
+    text-align: center;
     position: absolute;
     bottom: 10px;
-    text-align: center;
 }
 .paganation span {
-    padding: 5px 8px;
-    background: #F2F2F2;
+    display: inline-block;
+    padding: 6px;
+    background: #fff;
     color: red;
     border-radius: 50%;
-    cursor: pointer
+    cursor: pointer;
 }
-.paganation .selected {
-    background: #888;
-    color: white;
+.paganation .active {
+    background: #000;
 }
 .arrow {
     position: absolute;
-    top: 0;
+    top: calc(50% - 20px);
     width: 30px;
-    height: 286px;
-    line-height: 286px;
+    height: 40px;
+    line-height:  40px;
+    font-size: 20px;
     text-align: center;
     color: white;
     cursor: pointer;
+    background: rgba(0,0,0,.2);
+    opacity: 0.6;
 }
-#right {
+.rightBtn{
     right: 0;
 }
 .arrow:hover {
-    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
 }

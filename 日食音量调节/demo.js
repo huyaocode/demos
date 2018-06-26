@@ -7,7 +7,6 @@ var obj = {
     init: function(){
         this.moon = $('.moon');
         this.bindEvent();
-        // document.getElementById('audio');
         this.player = document.getElementById('audio');
         this.player.volume = 0;
     },

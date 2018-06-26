@@ -2,16 +2,16 @@
     margin: 0;
     padding: 0;
 }
-body{
+body{   /* 设置背景色 */
     background-color: #0e141b;
     overflow: hidden;
 }
-.wrapper{
+.wrapper{   /*让所有列居中*/
     width: 100%;
     text-align: center;
 }
 .wrapper .column,
-.wrapper .coln{
+.wrapper .coln{     /*让每一列都变成一个行内块，可以并排放在一起*/
     display: inline-block;
     vertical-align: top;
     font-size: 86px;
@@ -19,24 +19,24 @@ body{
     font-weight: 300;
     color:rgba(224, 230,235,0.89);   
 }
-.coln{
+.coln{  /*让“ ： ”垂直居中 */
     transform: translateY(calc(50vh - 43px));
 }
-.column{
+.column{    /*设置移动时的特效，使用ease-in效果，效果时长300ms*/
     transition: transform 300ms ease-in;
 }
 /*
     不同距离数值透明度不同
 */
-.column .visible{
+.column .visible{   /*设置可见数字的阴影*/
     text-shadow: 1px 1px 20px #369;
 }
-.column .close{
+.column .close{     /*离中心有点近的数字透明度为0.35*/
     opacity:0.35;
-}
-.column .far{
+} 
+.column .far{       /*离中心有点远的数字透明度为0.15*/
     opacity:0.15;
 }
-.column .distant{
-    opacity:0.1;
+.column .distant{   /*离中心最远的数字透明度为0.1*/
+    opacity:0.1;    
 }

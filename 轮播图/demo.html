@@ -9,38 +9,104 @@
 
 <body>
     <!--视图窗口 -->
-    <div id="container">
+    <div class="wrapper">
         <!-- 包含所有图片的容器 -->
-        <div id="inner" class="clear">
+        <div class="sliderPage">
             <img style="background:red;" src="#1#" alt="">
             <img style="background:orange;" src="#2#" alt="">
             <img style="background:green;" src="#3#" alt="">
             <img style="background:cyan;" src="#4#" alt="">
-            <img style="background:yellow;" src="#5#" alt="">
-            <img style="background:purple;" src="#6#" alt="">
-            <img style="background:pink;" src="#7#" alt="">
-            <img style="background:blue;" src="#8#" alt="">
             <img style="background:red;" src="#1#" alt="">
         </div>
-        <div class="paganation" id="paganation">
+        <div class="paganation">
             <!-- 锚点列表 -->
-            <span class="selected">1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div id="left" class="arrow">
-            &lt; <!-- 向左切换按钮 -->
+        <div class="arrow leftBtn">
+            &lt;
+            <!-- 向左切换按钮 -->
         </div>
-        <div id="right" class="arrow">
+        <div class="arrow rightBtn">
             &gt;
             <!-- 向右切换按钮 -->
         </div>
     </div>
+    <script src="move.js"></script>
+    <script>
+        var autoGoTimer = null;
+        var sliderPage = document.getElementsByClassName('sliderPage')[0];
+        var moveWidth = sliderPage.children[0].offsetWidth;
+        var num = sliderPage.children.length - 1;
+        var lock = true;
+        var spanArr = document.getElementsByClassName('paganation')[0].getElementsByTagName('span');
+        var index = 0;  //激活状态的下标索引值
+
+        var leftBtn = document.getElementsByClassName('leftBtn')[0],
+            rightBtn = document.getElementsByClassName('rightBtn')[0];
+
+        leftBtn.onclick = function () {
+            autoMove('left');
+        }
+        rightBtn.onclick = function () {
+            autoMove('right');
+        }
+
+        autoGoTimer = setTimeout(autoMove, 2000);
+        for(var i = 0; i < spanArr.length; i++){
+            (function(i){
+                spanArr[i].onclick = function(){
+                    lock = false;
+                    clearTimeout(autoGoTimer);
+                    index = i;
+                    startMove(sliderPage, {left: - index * moveWidth}, function(){
+                        lock = true;
+                        autoGoTimer = setTimeout(autoMove, 1500);
+                    });
+                    changIndex(i);
+                }
+            })(i)
+        }
+
+        function autoMove(direction) {
+            if (lock) {
+                lock = false;
+                clearTimeout(autoGoTimer);
+                //默认向右移动
+                if (!direction || direction == 'right') {
+                    index++;                    
+                    startMove(sliderPage, { left: sliderPage.offsetLeft - moveWidth }, function () {
+                        if (sliderPage.offsetLeft <= - num * moveWidth) {
+                            sliderPage.style.left = 0;
+                            index = 0;
+                        }
+                        autoGoTimer = setTimeout(autoMove, 2000);
+                        lock = true;
+                        changIndex(index);
+                    });
+                } else if (direction == 'left') {
+                    index--;                    
+                    if (parseInt(sliderPage.offsetLeft) >= 0) {
+                        sliderPage.style.left = -num * moveWidth + 'px';
+                        index = num-1;
+                    }
+                    startMove(sliderPage, { left: sliderPage.offsetLeft + moveWidth }, function () {
+                        autoGoTimer = setTimeout(autoMove, 2000);
+                        lock = true;
+                        changIndex(index);
+                    })
+                }
+            }
+        }
+        function changIndex(_index){
+            for(var i = 0; i < spanArr.length; i++){
+                spanArr[i].className = '';
+            }
+            spanArr[_index].className = 'active';
+        }
+    </script>
 </body>
 
 </html>
