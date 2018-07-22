@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    margin: 100px auto;
+    text-decoration: none;
+    list-style: none;
+    font-size: 0;
+    width: 520px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid black; */
+}
+.wrapper ul.img-box{
+    position: absolute;
+    width: 65535px;
+    height: 280px;
+}
+.wrapper ul.img-box li{
+    display: inline-block;
+    width: 520px;
+    height: 280px;
+}
+.wrapper .btn{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -15px;
+}
+.wrapper .btn a{
+    position: absolute;
+    width: 30px; 
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    cursor: pointer;
+}
+.wrapper .btn a.prev{
+    left: -5px;
+    border-radius: 0 50% 50% 0;
+}
+.wrapper .btn a.next{
+    right: -5px;
+    border-radius: 50% 0 0 50%;
+}
+.wrapper .btn span{
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    margin-top: 4px;
+    background-image: url('../img/taobao.png');
+}
+.btn .prev span{
+    background-position: -200px -95px;
+}
+.btn .next span{
+    background-position: -200px -115px;
+}
+.wrapper .order{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+.wrapper .order ul{
+    display: inline-block;
+    background: rgba(255, 0, 0, 0.3);
+    border-radius: 8px;
+}
+.wrapper .order ul li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 3px 5px;
+    cursor: pointer;
+}
+.wrapper .order ul li.active{
+    background-color: #f00;
+}
