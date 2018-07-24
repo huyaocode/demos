@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#slider{
+    text-decoration: none;
+    list-style: none;
+    font-size: 0;
+    width: 520px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+#slider ul.img-box{
+    position: absolute;
+    width: 65535px;
+    height: 280px;
+}
+#slider ul.img-box li{
+    display: inline-block;
+    width: 520px;
+}
+#slider ul.img-box li img{
+    width: 100%;
+    height: 100%;
+}
+#slider .btn{
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -15px;
+}
+#slider .btn a{
+    position: absolute;
+    width: 30px; 
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    cursor: pointer;
+}
+#slider .btn a.prev{
+    left: -5px;
+    border-radius: 0 50% 50% 0;
+}
+#slider .btn a.next{
+    right: -5px;
+    border-radius: 50% 0 0 50%;
+}
+#slider .btn span{
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    margin-top: 4px;
+    background-image: url('../img/taobao.png');
+}
+#slider .btn .prev span{
+    background-position: -200px -95px;
+}
+#slider .btn .next span{
+    background-position: -200px -115px;
+}
+#slider .order{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+#slider .order ul{
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+#slider .order ul li{
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 3px 5px;
+    cursor: pointer;
+}
+#slider .order ul li.active{
+    background-color: rgb(0, 255, 13);
+}

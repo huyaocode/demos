@@ -6,64 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>jQuery轮播图插件</title>
-    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="stylesheet" href="./css/slider.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <ul class="img-box">
-            <li>
-                <a href="javascript:void(0)">
-                    <img src="./img/1.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <img src="./img/2.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <img src="./img/3.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <img src="./img/4.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <img src="./img/5.jpg" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">
-                    <img src="./img/1.jpg" alt="">
-                </a>
-            </li>
-        </ul>
-        <div class="btn">
-            <a class="prev">
-                <span></span>
-            </a>
-            <a class="next">
-                <span></span>
-            </a>
-        </div>
-        <div class="order">
-            <ul>
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-    </div>
+    <div id="slider"></div>
 
     <script src="./js/jquery.js"></script>
-    <script src="./js/demo.js"></script>
+    <script src="./js/jquery.slider.js"></script>
+    <script>
+        var imgs = ['./img/1.jpg', './img/2.jpg', './img/3.jpg', './img/4.jpg', './img/5.jpg'];
+        $('#slider').sliderImg(imgs);
+    </script>
 </body>
 
 </html>
