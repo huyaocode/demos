@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#searchBox {
+    border: 1px solid #00B51D;
+    border-radius: 36px;
+    width: 300px;
+    height:  36px;
+    line-height: 34px;
+    padding: 0 0 0 16px;
+}
+#searchBox input{
+    outline: none;
+    height: 20px;
+    font-size: 17px;
+    line-height: 20px;
+    border: none;
+    width: 245px;
+}
+#searchBox button {
+    outline: none;
+    border: none;
+    background-color: #00B51D;
+    height: 36px;
+    width: 55px;
+    border-top-right-radius: 36px;
+    border-bottom-right-radius: 36px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
