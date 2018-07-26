@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#tabBox {
+    width: 675px;
+    margin: 100px auto;
+}
+#tabBox .header{
+    border-bottom: 2px solid #139D72;
+    padding-bottom: 3px;
+}
+#tabBox .header li {
+    list-style: none;
+    display: inline-block;
+    font-size: 16px;
+    /* margin: 0 5px; */
+}
+#tabBox .header li:first-child:before {
+    content: '';
+    color: transparent;
+}
+#tabBox .header li:before {
+    content: ' |';
+    color: #222;
+    padding: 0 3px;
+}
+#tabBox .header li a{
+    text-decoration: none;
+    color: #333;
+}
+#tabBox .header li:hover{
+    text-decoration: none;
+    color: #139D72;
+}
+#tabBox .header .tabs li.current a{
+    color: #139D72;
+}
+#tabBox .header h3{
+    display: inline-block;
+    margin-right: 20px;
+}
+#tabBox .header ul{
+    display: inline-block;
+}
+#tabBox .tab-contents{
+    width: 100%;
+    list-style: none;
+    background: #F5F7F8;
+    /* padding: 15px 0 0 5px; */
+    text-align: center;
+}
+#tabBox .tab-contents>li{
+    display: none;
+}
+#tabBox .tab-contents>li>ul{
+    padding: 0;
+}
+#tabBox .tab-contents>li.current{
+    display: block;
+}
+#tabBox .tab-contents>li>ul>li{
+    list-style: none;
+    display: inline-block;
+    margin: 12px;
+}
+#tabBox .tab-contents .cover{
+    border: 5px solid #FFFFFF;
+    box-shadow: 0 0 0 1px #DFDCDC;
+    margin-bottom: 10px;
+}
+#tabBox .tab-contents .img-box{
+    width: 125px;
+    height: 125px;
+    background-size: cover;
+    background-position: center top;
+}
+#tabBox .tab-contents .discribe{
+    color: #888;
+}

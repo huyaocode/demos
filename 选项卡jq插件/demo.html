@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery tab插件</title>
+    <link rel="stylesheet" href="./css/tabBox.css">
+</head>
+
+<body>
+    <div id="tabBox"></div>
+
+    <ul class="content">
+        <li class="item">
+            <img-box>
+                <img src="" alt="">
+            </img-box>
+            <h5></h5>
+            <span class="discribe"></span>
+        </li>
+
+    </ul>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.tabBox.js"></script>
+    <script>
+        var arrContents = [
+            [
+                {
+                    title: 'Soil asdf',
+                    discribe: '说唱 Rap',
+                    img: './img/1.jpg'
+                },
+                {
+                    title: 'Soil asd',
+                    discribe: '说唱 Rap',
+                    img: './img/2.jpg'
+                },
+                {
+                    title: 'Soil terrqwerq',
+                    discribe: '说唱 Rap',
+                    img: './img/3.jpg'
+                },
+                {
+                    title: 'Soil thetr',
+                    discribe: '说唱 Rap',
+                    img: './img/4.jpg'
+                },
+                {
+                    title: 'asdfas apin0',
+                    discribe: '说唱 Rap',
+                    img: './img/5.jpg'
+                },
+                {
+                    title: 'asdfapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/6.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/7.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/8.jpg'
+                }
+            ],
+            [
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/3.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/4.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/5.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/6.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/7.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/1.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/2.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/8.jpg'
+                }
+            ],
+            [
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/6.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/7.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/3.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/1.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/2.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/8.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/4.jpg'
+                },
+                {
+                    title: 'Soil terrapin0',
+                    discribe: '说唱 Rap',
+                    img: './img/5.jpg'
+                },
+
+            ],
+        ];
+        var arrContentHtml = [];
+        for (var i = 0; i < arrContents.length; i++) {  //每一页
+
+            var contentHtml = '';
+            for (var j = 0; j < arrContents[i].length; j++) {
+                contentHtml += `<li class="item">
+                                    <div class="cover">
+                                        <a href="javascript:void(0)">
+                                            <div class="img-box" style="background-image:url('`+arrContents[i][j].img+`')">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <h5>`+ arrContents[i][j].title + `</h5>
+                                    <span class="discribe">`+ arrContents[i][j].discribe + `</span>
+                                </li>`
+            }
+
+            arrContentHtml[i] = contentHtml;
+        }
+        console.log(arrContentHtml)
+        $('#tabBox').tabs({
+            title: "热碟榜",
+            tabList: ['最热', '华语', '欧美'],
+            tabContents: arrContentHtml,
+        });
+
+    </script>
+</body>
+
+</html>
