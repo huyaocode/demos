@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>百度联想词</title>
+    <style>
+        .wrapper{
+            margin: 100px auto;
+            width: 312px;
+        }
+        .wrapper input {
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+            padding:  0 5px;
+        }
+        .wrapper ul{
+            margin-top: -1px;
+            list-style: none;
+            padding: 0;
+            border: 1px solid #999;
+            border-top: none;
+            width: 312px;
+        }
+        .wrapper li {
+            padding: 5px;
+        }
+        .wrapper a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="text" >
+        <ul></ul>
+    </div>
+    
+
+    <script>
+        var oInput = document.getElementsByTagName('input')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+
+        oInput.oninput = function(){
+            var value = this.value;
+            //使用JOSNP进行跨域请求
+            //结果：一个新的JavaScript会被插入到head中，这个JavaScript的内容如下
+            // showlist({somekey: somevalue,...})  会调用showlist函数
+            var oScript = document.createElement('script');
+            oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+value+'&cb=showlist'
+            document.body.appendChild(oScript);
+        }
+        function showlist(data){
+            var liListHtml = '';
+            for(var i = 0; i < data.s.length; i++){
+                liListHtml += '<li><a href="https:www.baidu.com/s?wd='+data.s[i]+'">'+ data.s[i] +'</li>';
+            }
+            oUl.innerHTML = liListHtml;
+        }
+    </script>
+</body>
+</html>
