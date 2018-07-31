@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cookie记忆方块位置</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div.block {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        position: absolute;
+        cursor: crosshair;
+    }
+</style>
+
+<body>
+    <div class="block"></div>
+
+    <script src="./cookieUtil.js"></script>
+    <script>
+
+        var drag = {
+            target: null,
+            init: function () {
+                this.target = document.getElementsByClassName('block')[0];
+                
+                this.bindEvent();
+                this.target.style.left = cookieUtil.getCookie('left')  + 'px';
+                this.target.style.top = cookieUtil.getCookie('top')  + 'px';
+                console.log(cookieUtil.getCookie('left'))
+            },
+            bindEvent: function () {
+                //绑定事件中mousedown事件
+                var offsetX, offsetY;
+                var target = this.target;
+                var self = this;
+                
+                target.onmousedown = function (e) {
+                    //mousedown里面再绑定move和up事件
+                    offsetX = e.clientX - this.offsetLeft;
+                    offsetY = e.clientY - this.offsetTop;
+                    // var left, top;
+                    document.onmousemove = function(e){
+                        self.newLeft = e.clientX - offsetX;
+                        self.newTop = e.clientY - offsetY;
+                        target.style.left = self.newLeft  + 'px';
+                        target.style.top = self.newTop + 'px';
+                    };
+                    document.onmouseup = self.onmouseUp.bind(self); 
+                }
+            },
+            onmouseUp: function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                cookieUtil.setCookie('left', this.newLeft, 10000);
+                cookieUtil.setCookie('top', this.newTop , 10000);
+            }
+        }
+
+        drag.init();
+    </script>
+</body>
+
+</html>
