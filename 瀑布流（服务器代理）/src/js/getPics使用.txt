@@ -1,0 +1,8 @@
+请求方式：get
+请求地址：getPics.php
+传递参数：cpage=1
+		传递1，代表获取第一页的数据，
+		传递2，代表获取第二页的数据，以此类推
+
+新浪微相册广场
+http://photo.weibo.com/welcome/hot?nologin=1
