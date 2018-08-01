@@ -3,11 +3,13 @@ var pageNum = 1,
     isLoading = false;
     oLis = document.getElementsByClassName('box');
 
+var httpdomain = "http://localhost:8088/waterfall/";
+
 function getData() {
     if(!isLoading){ //加一个锁，不然滑到页底用户一直下拉就会一直触发这个事件
         isLoading = true;
         document.getElementsByClassName('loading')[0].style.display = "block";
-        ajax('GET', 'http://localhost:8088/waterfall/src/js/getPics.php', addDom, 'cpage=' + pageNum, true);
+        ajax('GET', httpdomain + 'src/js/getPics.php', addDom, 'cpage=' + pageNum, true);
         pageNum++;
     }
 }
