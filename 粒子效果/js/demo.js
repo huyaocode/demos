@@ -12,11 +12,21 @@
      * 入口函数
      */
     Model.prototype.init = function () {
-        var me = this;  
+
+        var me = this;
+        //每隔50ms生成一个粒子
+        setInterval(function () {
+            let p = me.genParticle();
+            p.x = me.canvas.width/2;
+            p.y = me.canvas.height/2;
+            console.log()
+            me.pativles.push(p);
+        }, 100);
         //生成Number个粒子
         for (var i = 0; i < me.numbers; i++) {
             me.pativles.push(me.genParticle());
         }
+        //运动初始的粒子
         var timer = setInterval(function () {
             me.ctx.clearRect(0,0,1000,800);
             for(var p in me.pativles){
@@ -24,8 +34,8 @@
                 me.pativles[p].x += Math.sin(me.pativles[p].dicrction);
                 me.pativles[p].y += Math.cos(me.pativles[p].dicrction);
             }
-            
         }, 30);
+        
     }
     /**
      * 生产随机粒子
@@ -53,7 +63,6 @@
      * 绘制粒子
      */
     Model.prototype.draw = function (p) {
-        console.log(p)
         var ctx = this.ctx;
         var me = this;
         ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.a})`;
