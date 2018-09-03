@@ -12,11 +12,20 @@
      * 入口函数
      */
     Model.prototype.init = function () {
-        for(var i = 0; i < this.numbers; i++){
-            var p = this.genParticle();
-            this.draw(p);
-            
+        var me = this;  
+        //生成Number个粒子
+        for (var i = 0; i < me.numbers; i++) {
+            me.pativles.push(me.genParticle());
         }
+        var timer = setInterval(function () {
+            me.ctx.clearRect(0,0,1000,800);
+            for(var p in me.pativles){
+                me.draw(me.pativles[p]);
+                me.pativles[p].x += Math.sin(me.pativles[p].dicrction);
+                me.pativles[p].y += Math.cos(me.pativles[p].dicrction);
+            }
+            
+        }, 30);
     }
     /**
      * 生产随机粒子
@@ -44,23 +53,17 @@
      * 绘制粒子
      */
     Model.prototype.draw = function (p) {
-   
+        console.log(p)
         var ctx = this.ctx;
         var me = this;
+        ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.a})`;
+        ctx.beginPath();
         
-        var timer = setInterval(function(){
-            
-            //cxt.clearRect(0,0,me.width,me.height);  
-            // 
-            ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.a})`;
-            ctx.beginPath();
-            p.x = Math.sin(p.dicrction) + p.x;
-            p.y = Math.cos(p.dicrction) + p.y;
-            ctx.arc(p.x, p.y, p.radius, 0, 2*Math.PI);
-            ctx.stroke();
-            ctx.fill();
-            ctx.closePath();
-        }, 30);
+        ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
     }
 
     window.Particle = Model;
