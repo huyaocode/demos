@@ -1,11 +1,10 @@
 (function () {
 
     var Model = function (canvas) {
-        var me = this;
-        me.canvas = canvas;
-        me.ctx = canvas.getContext('2d');
-        me.numbers = 100;
-        me.pativles = [];
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.numbers = 100;
+        this.pativles = [];
     }
 
     /**
@@ -41,11 +40,10 @@
      * 生产随机粒子
      */
     Model.prototype.genParticle = function () {
-        var me = this;
         return {
             //位置
-            x: Math.floor(Math.random() * me.canvas.width),
-            y: Math.floor(Math.random() * me.canvas.height),
+            x: Math.floor(Math.random() * this.canvas.width),
+            y: Math.floor(Math.random() * this.canvas.height),
             //方向
             dicrction: 2 * Math.PI * Math.random(),
             //速度
@@ -64,7 +62,7 @@
      */
     Model.prototype.draw = function (p) {
         var ctx = this.ctx;
-        var me = this;
+
         ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.a})`;
         ctx.beginPath();
         
@@ -72,7 +70,6 @@
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
-
     }
 
     window.Particle = Model;

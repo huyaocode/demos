@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>split block</title>
+</head>
+<style>
+    #block {
+        position: relative;
+        background-color: #99CCFF;
+        width: 600px;
+        height: 400px;
+    }
+    #block>div {
+        position: absolute;
+        color: #000;
+        box-sizing: border-box;
+        border-right: 1px solid #fff;
+        border-bottom:  1px solid #fff;
+    }
+    #block>div>div{
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+
+    <div id="block"></div>
+
+    <script src="./js/splitBlock.js"></script>
+    <script src="./js/data.js"></script>
+    <script>
+        
+        //画板
+        var oDom = document.getElementById("block");
+        var width = oDom.offsetWidth,
+            height = oDom.offsetHeight;
+        //调用切割方块方法，获得绘制信息
+        var splitBlock = new SpliteBlock();
+        //不排序
+        var posArr = splitBlock.init(arr, width, height);
+        //排序
+        // var posArr = splitBlock.init(arr, width, height, true);
+
+        //使用绘制信息，自定义绘制方法
+        draw(posArr, oDom);
+        function draw(arr, oDom) {
+            arr.forEach(ele => {
+                var odiv = document.createElement('div');
+                odiv.style.width = ele.pos.w + 'px';
+                odiv.style.height = ele.pos.h + 'px';
+                odiv.style.left = ele.pos.x + 'px';
+                odiv.style.top = ele.pos.y + 'px';
+                odiv.innerHTML = `<div>${ele.info.name}</div>`;
+                oDom.appendChild(odiv);
+            });
+            document.body.appendChild(oDom);
+        }
+
+    </script>
+</body>
+
+</html>
