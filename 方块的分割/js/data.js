@@ -38,6 +38,6 @@ var arr = [{
     name: "16",
     size: 16
 }, {
-    name: "26",
-    size: 26
+    name: "27.7",
+    size: 27.7
 }];
