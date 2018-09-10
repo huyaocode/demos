@@ -1,0 +1,9 @@
+*{
+    // 让所有旋转的元素背面变得不可见
+    backface-visibility: hidden;
+}
+.whole-page{
+    background: radial-gradient(circle, #FFF 0%, #8e8e8e 20%, #202020 100%);
+}
+
+$pi: 3.14159265359;

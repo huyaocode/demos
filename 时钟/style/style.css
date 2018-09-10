@@ -1,0 +1,9 @@
+* {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.whole-page {
+  background: radial-gradient(circle, #FFF 0%, #8e8e8e 20%, #202020 100%);
+}
+/*# sourceMappingURL=style.css.map */

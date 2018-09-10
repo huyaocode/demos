@@ -11,25 +11,34 @@
      * 入口函数
      */
     Model.prototype.init = function () {
-
+        var cWidth = this.canvas.width,
+            cHeight = this.canvas.width;
+        console.log(cWidth,cHeight);
         var me = this;
-        //每隔50ms生成一个粒子
-        setInterval(function () {
-            let p = me.genParticle();
-            p.x = me.canvas.width/2;
-            p.y = me.canvas.height/2;
-            console.log()
-            me.pativles.push(p);
-        }, 100);
+        // //每隔100ms生成一个粒子
+        // setInterval(function () {
+        //     let p = me.genParticle();
+        //     p.x = me.canvas.width/2;
+        //     p.y = me.canvas.height/2;
+        //     me.pativles.push(p);
+        // }, 100);
         //生成Number个粒子
         for (var i = 0; i < me.numbers; i++) {
             me.pativles.push(me.genParticle());
         }
-        //运动初始的粒子
+        //运动所有的粒子
         var timer = setInterval(function () {
-            me.ctx.clearRect(0,0,1000,800);
+            me.ctx.clearRect(0,0,cWidth,cHeight);
             for(var p in me.pativles){
                 me.draw(me.pativles[p]);
+                //当粒子的位置超出视口时，让他位置居中
+                if(me.pativles[p].x < 0 - me.pativles[p].radius 
+                    || me.pativles[p].x > cWidth 
+                    || me.pativles[p].h < 0 - me.pativles[p].radius
+                    || me.pativles[p].y > cHeight){
+                        me.pativles[p].x =  me.canvas.width/2;
+                        me.pativles[p].y =  me.canvas.height/2;
+                    }
                 me.pativles[p].x += Math.sin(me.pativles[p].dicrction);
                 me.pativles[p].y += Math.cos(me.pativles[p].dicrction);
             }
