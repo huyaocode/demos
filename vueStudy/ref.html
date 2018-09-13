@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter ref="one" @add="handleAdd"></counter>
+        <counter ref="two" @add="handleAdd"></counter>
+        <div>{{total}}</div>
+    </div>
+
+    <script>
+        Vue.component('counter', {
+            template: '<button @click="handleClick"> {{number}} </button>',
+            data: function() {
+                return {
+                    number: 0
+                }
+            },
+            methods: {
+                handleClick: function() {
+                    this.number++;
+                    this.$emit('add');
+                }
+            }
+        });
+        
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                total: 0
+            },
+            methods: {
+                handleAdd: function(){
+                    this.total = this.$refs.one.number + this.$refs.two.number;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

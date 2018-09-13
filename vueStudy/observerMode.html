@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>非父子组件间传值（Bus总线 / 发布订阅模式 / 观察者模式）</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child :content="first"></child>
+        <child :content="second"></child>
+    </div>
+
+    <script>
+        Vue.prototype.bus = new Vue();
+        Vue.component('child', {
+            props: ['content'],
+            data: function(){
+                return {
+                    selfContent: this.content
+                }
+            },
+            template: '<div @click="broadcast">{{selfContent}}</div>',
+            methods:{
+                broadcast: function() {//广播
+                    this.bus.$emit('change', this.selfContent);
+                }
+            },
+            mounted: function() {   //接受
+                var _this = this;
+                this.bus.$on('change', function(msg){
+                    _this.selfContent = msg;
+                })
+            },
+        });
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                first: "Hu",
+                second: "Yao"
+            }
+        })
+    </script>
+</body>
+</html>
