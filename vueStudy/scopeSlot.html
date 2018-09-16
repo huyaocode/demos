@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Scope Slot作用域插槽</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <child>
+            <template slot-scope="props">
+                <h1>{{props.item}}</h1>
+            </template>
+        </child>  
+    </div>
+
+    <script>
+        Vue.component('child', {
+            data: function () {
+                return {
+                    list: [1, 2, 3, 4]
+                }
+            },
+            template: `
+                <div>
+                    <ul>
+                        <slot v-for="item of list" :item="item"></slot>
+                    </ul>
+                </div>
+            `
+        })
+        var vm = new Vue({
+            el: '#root'
+        });
+    </script>
+</body>
+
+</html>
