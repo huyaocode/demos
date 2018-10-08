@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>图片的截取与编码</title>
+  <style>
+    .wrapper{
+      display: flex;
+      margin: 30px;
+    }
+    button {
+      display: block;
+    }
+    .left {
+      position: relative;
+      width: 500px;
+    }
+    
+    .left img {
+      /* width: 100%; */
+    }
+
+    #shot {
+
+      background-color: rgba(220, 220, 200, 0.5);
+      position: absolute;
+      left: 150px;
+      top: 30px;
+    }
+
+    .right {
+      margin-left: 20px;
+    }
+
+  </style>
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="left">
+      <img
+        id="srcImg"
+        src="./lvgu.jpg"
+        alt=""
+        srcset=""
+      />
+      <div id="shot">
+      </div>
+    </div>
+    <div class="right">
+      <canvas
+        id="canvas"
+        width="300"
+        height="300"
+      ></canvas>
+      <button disabled id="codingBtn">点击上传</button>
+    </div>
+  </div>
+  <script src="./demo.js"></script>
+</body>
+
+</html>
