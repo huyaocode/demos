@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动条</title>
+    <style>
+        html,
+        body {
+            height: 500px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #scoll-container {
+            width: 150px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        #content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: -17px;
+            bottom: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        #y-bar-container {
+            width: 10px;
+            position: absolute;
+            right: 0;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        #y-bar-container:hover {
+            width: 12px;
+            transition: width 0.3s;
+        }
+
+        #y-bar {
+            position: absolute;
+            right: 2px;
+            width: 6px;
+            border-radius: 3px;
+            opacity: 0.88;
+            background-color: #b0b0b0;
+            transition: width 0.3s;
+        }
+
+        #y-bar:hover {
+            right: 2px;
+            width: 8px;
+            border-radius: 4px;
+            background-color: #888888;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="scoll-container">
+        <div id="content">
+            <ul>
+                <li>第一行文字</li>
+                <li>文字文字文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>文字文字</li>
+                <li>最后一行文字</li>
+            </ul>
+        </div>
+        <div id="y-bar-container">
+            <div id="y-bar"></div>
+        </div>
+    </div>
+
+    <script src="./scroll.js"></script>
+    <script>
+        const container = document.getElementById('scoll-container');
+        const yBar = document.getElementById('y-bar');
+        const yBarContainer = document.getElementById('y-bar-container')
+        const content = document.getElementById('content')
+        const scrollDOM = {
+            container,
+            content,
+            yBar,
+            yBarContainer
+        }
+        const thumbStyle = {
+            thumbMarginTopBottom: 1,
+            
+            thumbMarginRight: 2,
+            thumbWidth: 6,
+            thumbColor: '#b0b0b0',
+            thumbHoverWidth: 8,
+            thumbHoverColor: '#888888'
+        }
+        new Scroll(scrollDOM, thumbStyle)
+    </script>
+</body>
+
+</html>
