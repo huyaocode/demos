@@ -1,0 +1,65 @@
+.todo-list {
+  width: 550px;
+  margin: 130px auto;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.control h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
+  margin: 0;
+  color: rgba(175, 47, 47, 0.15);
+}
+
+.control .new-todo {
+  padding: 16px 16px 16px 60px;
+  border: 0;
+  outline: none;
+  font-size: 24px;
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 1.4rem;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.todos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+.todo-item input {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 20px;
+}
+.todo-item label {
+  flex: 1;
+  padding: 15px 15px 15px 0;
+  display: block;
+}
+.todo-item label.complete {
+  text-decoration: line-through;
+}
+
+.todo-item button {
+  border: 0;
+  outline: 0;
+  display: block;
+  width: 40px;
+  text-align: center;
+  font-size: 30px;
+  color: #cc9a9c;
+  margin-right: 10px;
+  background-color: #fff;
+}
